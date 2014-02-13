@@ -27,14 +27,14 @@ function add_color {
         STRING_START+="\x1B[38;5;$1m"
     else
         case $1 in
-            'black') STRING_START+='\x1B[30m';;
-            'red') STRING_START+='\x1B[31m';;
-            'green') STRING_START+='\x1B[32m';;
-            'yellow') STRING_START+='\x1B[33m';;
-            'blue') STRING_START+='\x1B[34m';;
+            'black')   STRING_START+='\x1B[30m';;
+            'red')     STRING_START+='\x1B[31m';;
+            'green')   STRING_START+='\x1B[32m';;
+            'yellow')  STRING_START+='\x1B[33m';;
+            'blue')    STRING_START+='\x1B[34m';;
             'magenta') STRING_START+='\x1B[35m';;
-            'cyan') STRING_START+='\x1B[36m';;
-            'white') STRING_START+='\x1B[97m';;
+            'cyan')    STRING_START+='\x1B[36m';;
+            'white')   STRING_START+='\x1B[97m';;
         esac
     fi
 }

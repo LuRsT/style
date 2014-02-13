@@ -1,0 +1,62 @@
+#!/bin/env bash
+
+# The MIT License (MIT)
+#
+# Copyright (c) 2014 Gil Gonçalves
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of
+# this software and associated documentation files (the "Software"), to deal in
+# the Software without restriction, including without limitation the rights to
+# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+# the Software, and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+function add_color {
+    if [[ $1 != *[!0-9]* ]]; then
+        STRING_START+="\x1B[38;5;$1m"
+    else
+        case $1 in
+            'black') STRING_START+='\x1B[30m';;
+            'red') STRING_START+='\x1B[31m';;
+            'green') STRING_START+='\x1B[32m';;
+            'yellow') STRING_START+='\x1B[33m';;
+            'blue') STRING_START+='\x1B[34m';;
+            'magenta') STRING_START+='\x1B[35m';;
+            'cyan') STRING_START+='\x1B[36m';;
+            'white') STRING_START+='\x1B[97m';;
+        esac
+    fi
+}
+
+
+while getopts “:c:bi” OPTION
+do
+    case $OPTION in
+        c)
+            add_color $OPTARG;;
+        b)
+            bold=$(tput bold)
+            STRING_START+="${bold}"
+            STRING_END+="${bold}";;
+        i)
+            STRING_START+="\e[3m"
+            STRING_END+="\e[m";;
+    esac
+done
+
+
+while read LINE; do
+    echo -e ${STRING_START}${LINE}${STRING_END};
+done
+

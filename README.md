@@ -54,9 +54,9 @@ the source, it's free.
 
 ## TODO:
 
-    * [ ] Add more functionality
-    * [ ] Make code more consistent (bold uses tput, italics doenst)
-    * [ ] Add to homebrew
+* Add more functionality
+* Make code more consistent (bold uses tput, italics doenst)
+* Add to homebrew
 
 
 ## Acknowledgments
@@ -66,8 +66,8 @@ https://github.com/LuRsT/hr/pull/7
 
 So, thank you!
 
-    * [donebizkit](https://github.com/donebizkit)
-    * [cbanu](https://github.com/cbanu)
+* [donebizkit](https://github.com/donebizkit)
+* [cbanu](https://github.com/cbanu)
 
 Note: I will not add every single contributor to this list, they are hardcoded
 here because the repo appeared only after the discussion.

@@ -49,7 +49,7 @@ Note: You should have `~/bin` in your `$PATH` for this to work.
     -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
 
 
-That's it, no requirements, just pure old `bash`, `tput` and `getopts`, check 
+That's it, no requirements, just pure old `bash`, `tput` and `getopts`, check
 the source, it's free.
 
 ## TODO:
@@ -58,3 +58,16 @@ the source, it's free.
     * [ ] Make code more consistent (bold uses tput, italics doenst)
     * [ ] Add to homebrew
 
+
+## Acknowledgments
+
+Idea got while discussing the use of colours in `hr` here:
+https://github.com/LuRsT/hr/pull/7
+
+So, thank you!
+
+    * [donebizkit](https://github.com/donebizkit)
+    * [cbanu](https://github.com/cbanu)
+
+Note: I will not add every single contributor to this list, they are hardcoded
+here because the repo appeared only after the discussion.

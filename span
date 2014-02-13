@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # The MIT License (MIT)
 #
@@ -52,6 +52,9 @@ do
         i)
             STRING_START+="\e[3m"
             STRING_END+="\e[m";;
+        u)
+            STRING_START+="\033[4m"
+            STRING_END+="\033[0m";;
     esac
 done
 

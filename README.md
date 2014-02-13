@@ -1,7 +1,7 @@
 span
 ====
 
-`<span />` for your terminal
+`<span>` for your terminal
 
 Tired of the boring white on black output of your terminal? Need a little more
 emphasis? Or maybe display some quotes that make you smile or inspired in your

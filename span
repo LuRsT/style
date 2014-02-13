@@ -44,22 +44,24 @@ while getopts “:c:bi” OPTION
 do
     case $OPTION in
         c)
-            add_color $OPTARG;;
+            add_color $OPTARG
+            ;;
         b)
             bold=$(tput bold)
             STRING_START+="${bold}"
-            STRING_END+="${bold}";;
+            ;;
         i)
             STRING_START+="\e[3m"
-            STRING_END+="\e[m";;
+            ;;
         u)
             STRING_START+="\033[4m"
-            STRING_END+="\033[0m";;
+            ;;
     esac
 done
 
 
+RESET_TEXT_ATTRIBUTES=$(tput sgr0)
 while read LINE; do
-    echo -e ${STRING_START}${LINE}${STRING_END};
+    echo -e ${STRING_START}${LINE}${RESET_TEXT_ATTRIBUTES};
 done
 

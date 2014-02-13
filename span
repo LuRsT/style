@@ -40,7 +40,7 @@ function add_color {
 }
 
 
-while getopts “:c:bi” OPTION
+while getopts “:c:biu” OPTION
 do
     case $OPTION in
         c)

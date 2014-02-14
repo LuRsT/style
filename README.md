@@ -28,25 +28,14 @@ Note: You should have `~/bin` in your `$PATH` for this to work.
     -rw-r--r-- 1 lurst users  574 Feb 13 08:02 README.md
     -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
 
-    $ ls -l | span -b # Now the ouput is in bold
-    total 8
-    -rw-r--r-- 1 lurst users  574 Feb 13 08:02 README.md
-    -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
-
-    $ ls -l | span -c blue # Now the ouput is blue
-    total 8
-    -rw-r--r-- 1 lurst users  574 Feb 13 08:02 README.md
-    -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
-
-    $ ls -l | span -c 11 # Now the ouput is yellow-orangeish
-    total 8
-    -rw-r--r-- 1 lurst users  574 Feb 13 08:02 README.md
-    -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
-
-    $ ls -l | span -i # Now the ouput is in italics
-    total 8
-    -rw-r--r-- 1 lurst users  574 Feb 13 08:02 README.md
-    -rwxr-xr-x 1 lurst users 2045 Feb 13 07:58 span
+    $ ls -l | span -b      # Now the ouput is in bold
+    $ ls -l | span -C blue # Now the ouput is blue
+    $ ls -l | span -C 11   # Now the ouput is yellow-orangeish
+    $ ls -l | span -B blue # Now the ouput's background is blue
+    $ ls -l | span -B 11   # Now the ouput's background is yellow-orangeish
+    $ ls -l | span -i      # Now the ouput is in italics
+    $ ls -l | span -u      # Now the ouput is underlined
+    $ ls -l | span -t      # Now the ouput twinkles (aka "blink")
 
 
 That's it, no requirements, just pure old `bash`, `tput` and `getopts`, check

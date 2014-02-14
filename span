@@ -22,39 +22,50 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-function add_color {
-    if [[ $1 != *[!0-9]* ]]; then
-        STRING_START+="\x1B[38;5;$1m"
-    else
-        case $1 in
-            'black')   STRING_START+='\x1B[30m';;
-            'red')     STRING_START+='\x1B[31m';;
-            'green')   STRING_START+='\x1B[32m';;
-            'yellow')  STRING_START+='\x1B[33m';;
-            'blue')    STRING_START+='\x1B[34m';;
-            'magenta') STRING_START+='\x1B[35m';;
-            'cyan')    STRING_START+='\x1B[36m';;
-            'white')   STRING_START+='\x1B[97m';;
-        esac
-    fi
+function translate_color {
+    COLOR_CODE=$1
+
+    case $COLOR_CODE in
+        'black')   COLOR_CODE=232;;
+        'red')     COLOR_CODE=124;;
+        'green')   COLOR_CODE=128;;
+        'yellow')  COLOR_CODE=190;;
+        'blue')    COLOR_CODE=19;;
+        'magenta') COLOR_CODE=52;;
+        'cyan')    COLOR_CODE=57;;
+        'white')   COLOR_CODE=255;;
+    esac
 }
 
 
-while getopts “:c:biu” OPTION
+while getopts “:B:C:biut” OPTION
 do
     case $OPTION in
-        c)
-            add_color $OPTARG
+        B)
+            translate_color $OPTARG
+            color=$(tput setab $COLOR_CODE)
+            STRING_START+="${color}"
+            ;;
+        C)
+            translate_color $OPTARG
+            foreground=$(tput setaf ${COLOR_CODE})
+            STRING_START+="${foreground}"
             ;;
         b)
             bold=$(tput bold)
             STRING_START+="${bold}"
             ;;
         i)
-            STRING_START+="\e[3m"
+            italics=$(tput sitm)
+            STRING_START+="${italics}"
             ;;
         u)
-            STRING_START+="\033[4m"
+            underline=$(tput smul)
+            STRING_START+="${underline}"
+            ;;
+        t)
+            blink=$(tput blink)
+            STRING_START+="${blink}"
             ;;
     esac
 done
